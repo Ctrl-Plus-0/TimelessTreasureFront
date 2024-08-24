@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
 
     <div class="Formblock">
-          <h3>Register</h3>
+          <h3>Login</h3>
 
           <div class="Label_Box">
 

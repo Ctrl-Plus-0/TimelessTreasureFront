@@ -46,9 +46,10 @@ https://templatemo.com/tm-540-lava-landing-page
     </div>
     <!-- ***** Preloader End ***** -->
 
-    <div class="containers">
+    
+    
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+    <header class="header-area header-sticky" runat="server">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -122,7 +123,7 @@ https://templatemo.com/tm-540-lava-landing-page
 
 
                     <!--LOgin and Register Nav bar (ADjust as needed pls)-->
-                            <nav id="RegLoginNav" class="main-nav" runat="server" visible="True">
+                       <nav id="RegLoginNav" class="main-nav" runat="server" visible="true">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
                             Lava
@@ -235,10 +236,10 @@ https://templatemo.com/tm-540-lava-landing-page
         </div>
     </footer>
               
-        </div>
+       
           <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
-
+     
     <!-- Bootstrap -->
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

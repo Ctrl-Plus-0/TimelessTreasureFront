@@ -73,24 +73,34 @@
 		}
 	});
 
+	//Had to change this JS to take external links into account
+	//didnt work otherwise
+
 	$(document).ready(function () {
 		$('a[href^="#welcome"]').addClass('active');
 
-		//smoothscroll
+		// Smooth scroll and navigation handling
 		$('.menu-item').on('click', function (e) {
-			e.preventDefault();
-			var athis = this;
-			var target = this.hash,
-				menu = target;
-			var $target = $(target);
+			var href = $(this).attr('href');
 
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
-			}, 500, 'swing', function () {
-				window.location.hash = target;
-				$('.menu-item').removeClass('active');
-				$(athis).addClass('active');
-			});
+			// Check if the link is internal (anchors with #) or external (.aspx pages)
+			if (href.startsWith("#")) {
+				e.preventDefault(); // Prevent default only for internal links
+
+				var target = this.hash;
+				var $target = $(target);
+
+				$('html, body').stop().animate({
+					'scrollTop': $target.offset().top
+				}, 500, 'swing', function () {
+					window.location.hash = target;
+					$('.menu-item').removeClass('active');
+					$(this).addClass('active');
+				});
+			} else {
+				// Allow default navigation for external links like .aspx pages
+				window.location.href = href;
+			}
 		});
 
 		$(window).scroll(function (event) {
@@ -100,6 +110,7 @@
 				$('a[href^="#welcome"]').addClass('active');
 				return;
 			}
+
 			$('.menu-item').not('[href=""]').not('[href="javascript:;"]').each(function () {
 				var currLink = $(this);
 				var refElement = $(currLink.attr("href"));
@@ -111,8 +122,9 @@
 					currLink.removeClass("active");
 				}
 			});
-		})
+		});
 	});
+	//end of changes -Hmzahe
 
 	const Accordion = {
 		settings: {
